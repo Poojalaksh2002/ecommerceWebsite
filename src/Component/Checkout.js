@@ -2,11 +2,11 @@ import { useSelector } from "react-redux";
 import Cart from "./Cart";
 
 function Checkout() {
-    const state = useSelector((state)=>state.addCart)
+    const state = useSelector((state)=>state)
     console.log(state)
     let total = 0;
     const itemList = (item)=>{
-        total = total + item.price
+        total = total + item.price - 5
         return(
             <li className="list-group-item d-flex justify-content-between lh-sm">
             <div className=" text-start">
@@ -26,7 +26,7 @@ function Checkout() {
           <span className="badge bg-primary rounded-pill">{Cart.length}</span>
         </h4>
         <ul className="list-group mb-3">
-         {state.map(itemList)}
+         {state && state?.reducer?.map(itemList)}
          
           <li className="list-group-item d-flex justify-content-between bg-body-tertiary">
             <div className="text-success text-start">
@@ -37,7 +37,7 @@ function Checkout() {
           </li>
           <li className="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong>$20</strong>
+            <strong>${total}</strong>
           </li>
         </ul>
 

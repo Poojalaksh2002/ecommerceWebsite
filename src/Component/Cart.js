@@ -1,5 +1,6 @@
  import { useSelector, useDispatch } from "react-redux"
  import { addCart, delCart,removeItem } from "../Redux/action"
+ import { Link } from "react-router-dom"
 import Product from "./Product"
 
  function Cart(){
@@ -56,7 +57,7 @@ import Product from "./Product"
         return(
             <div className="container">
                 <div className="row">
-                    <a to="/checkout" href="/checkout" className="btn btn-outline-primary mb-5 w-25 mx-auto">Proceed To checkout</a>
+                    <Link to="/checkout" className="btn btn-outline-primary mb-5 w-25 mx-auto">Proceed To checkout</Link>
                 </div>
             </div>
         );

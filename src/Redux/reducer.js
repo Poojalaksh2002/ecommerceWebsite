@@ -5,9 +5,12 @@ const reducer = (state=initialState, action)=>{
     const product = action.payload
 
     switch(action.type){
+
         case "add_Cart":
         
             const productIsExist = state.find((item)=>item.id === product.id)
+            alert(state)
+            console.log("productExist", productIsExist)
             if(productIsExist){
                 return state.map((item)=>item.id === product.id ?{...item, qty: item.qty + 1}: state)
             }

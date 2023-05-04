@@ -1,4 +1,5 @@
 export const addCart = (Product)=>{
+  console.log('actionType', Product)
     return{
        type : "add_Cart",
        payload : Product
